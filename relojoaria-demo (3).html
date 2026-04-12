@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison Relógio — Relojoaria & Joalharia | Porto</title>
+<meta name="description" content="Maison Relógio — Relojoaria e joalharia de luxo no Porto. Relógios, joias e reparações. Peças únicas desde 1978.">
+<meta property="og:title" content="Maison Relógio — Relojoaria & Joalharia no Porto">
+<meta property="og:description" content="Relógios e joias de autor. Reparação e avaliação de peças. Uma tradição de excelência desde 1978.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1200&h=630&fit=crop&q=90">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1200&h=630&fit=crop&q=90">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#08080A;--dark:#121216;--dark2:#1C1C22;--dark3:#242430;
+  --gold:#B8973A;--gold2:#D4AE52;--gold-pale:#F5F0E4;
+  --silver:#8C9BAA;--silver-light:#C4CDD6;
+  --white:#F8F8FA;--off:#EFEFF3;--mid:#7A7A8A;
+  --ff-display:'Crimson Pro',Georgia,serif;
+  --ff-body:'Montserrat',sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--ff-body);font-weight:300;line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--dark)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:28px 72px;transition:all .5s var(--ease);border-bottom:1px solid transparent}
+header.scrolled{background:rgba(8,8,10,.97);backdrop-filter:blur(20px);padding:16px 72px;border-color:rgba(184,151,58,.12)}
+.logo{text-decoration:none;display:flex;flex-direction:column;align-items:flex-start}
+.logo-main{font-family:var(--ff-display);font-size:20px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--white)}
+.logo-main span{color:var(--gold);font-weight:600}
+.logo-sub{font-size:8px;font-weight:400;letter-spacing:.38em;text-transform:uppercase;color:var(--mid)}
+nav ul{display:flex;gap:36px;list-style:none}
+nav ul a{font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);text-decoration:none;position:relative;transition:color .3s}
+nav ul a::after{content:'';position:absolute;bottom:-4px;left:50%;right:50%;height:.5px;background:var(--gold);transition:left .3s,right .3s}
+nav ul a:hover{color:var(--white)}
+nav ul a:hover::after{left:0;right:0}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gold);font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;padding:12px 28px;text-decoration:none;border:.5px solid rgba(184,151,58,.5);transition:all .3s var(--ease)}
+.nav-cta:hover{background:var(--gold);color:var(--black);transform:scale(1.03)}
+@media(max-width:900px){header{padding:18px 24px}header.scrolled{padding:12px 24px}nav ul{display:none}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1600&q=85&fit=crop');background-size:cover;background-position:center;transform:scale(1.04);animation:zoomOut 1.6s .1s forwards ease-out}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(8,8,10,.95) 0%,rgba(8,8,10,.75) 50%,rgba(8,8,10,.35) 100%)}
+.hero-grain{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:.6}
+.hero-content{position:relative;z-index:2;padding:0 80px;max-width:760px}
+.hero-kicker{display:flex;align-items:center;gap:16px;margin-bottom:28px;opacity:0;animation:fadeUp .7s .3s forwards}
+.hero-kicker-line{width:40px;height:.5px;background:var(--gold)}
+.hero-kicker-text{font-size:10px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.hero-h1{font-family:var(--ff-display);font-size:clamp(52px,6.5vw,100px);font-weight:300;line-height:1.0;letter-spacing:.02em;margin-bottom:24px;opacity:0;animation:fadeUp .9s .45s forwards}
+.hero-h1 em{font-style:italic;font-weight:300;color:var(--gold)}
+.hero-desc{font-size:17px;font-weight:300;color:rgba(248,248,250,.55);max-width:480px;margin-bottom:52px;line-height:1.85;opacity:0;animation:fadeUp .9s .6s forwards}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:72px;opacity:0;animation:fadeUp .9s .75s forwards}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--black);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:16px 44px;text-decoration:none;transition:all .3s var(--ease)}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px) scale(1.02);box-shadow:0 12px 36px rgba(184,151,58,.3)}
+.btn-border{display:inline-flex;align-items:center;gap:10px;background:transparent;color:rgba(248,248,250,.6);font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;padding:16px 32px;text-decoration:none;border:.5px solid rgba(248,248,250,.2);transition:all .3s var(--ease)}
+.btn-border:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px) scale(1.02)}
+.hero-meta{display:flex;gap:56px;padding-top:48px;border-top:.5px solid rgba(184,151,58,.15);opacity:0;animation:fadeUp .9s .9s forwards}
+.hmeta-num{font-family:var(--ff-display);font-size:40px;font-weight:300;font-style:italic;color:var(--gold);line-height:1}
+.hmeta-lbl{font-size:10px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:rgba(248,248,250,.3);margin-top:4px}
+@media(max-width:768px){.hero-content{padding:0 24px}.hero-meta{gap:28px}}
+
+/* TICKER */
+.ticker{background:var(--dark2);padding:14px 0;overflow:hidden;border-top:.5px solid rgba(184,151,58,.12);border-bottom:.5px solid rgba(184,151,58,.12)}
+.tick-track{display:inline-flex;animation:marquee 28s linear infinite}
+.tick-item{display:inline-flex;align-items:center;gap:16px;padding:0 32px;font-size:10px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:rgba(184,151,58,.5)}
+.tick-dot{width:3px;height:3px;border-radius:50%;background:rgba(184,151,58,.3)}
+
+/* SECTIONS */
+.sec{padding:120px 80px}
+@media(max-width:768px){.sec{padding:72px 24px}}
+.stag{font-size:10px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.stag::before{content:'';width:28px;height:.5px;background:var(--gold)}
+.stitle{font-family:var(--ff-display);font-size:clamp(36px,4.5vw,64px);font-weight:300;line-height:1.1;margin-bottom:16px}
+.stitle em{font-style:italic;color:var(--gold)}
+.ssub{font-size:16px;font-weight:300;color:var(--mid);max-width:500px;line-height:1.85}
+
+/* COLLECTION */
+.coll-sec{background:var(--dark)}
+.coll-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:72px;background:rgba(184,151,58,.08)}
+@media(max-width:900px){.coll-grid{grid-template-columns:1fr;gap:16px;background:none}}
+.coll-card{background:var(--dark);padding:0;cursor:pointer;position:relative;overflow:hidden;transition:background .4s}
+.coll-card:hover{background:var(--dark2)}
+.coll-img{width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:grayscale(20%);transition:filter .5s,transform .5s}
+.coll-card:hover .coll-img{filter:grayscale(0%);transform:scale(1.04)}
+.coll-body{padding:28px 32px 36px}
+.coll-cat{font-size:10px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.coll-title{font-family:var(--ff-display);font-size:26px;font-weight:300;margin-bottom:8px;line-height:1.2;transition:color .3s}
+.coll-card:hover .coll-title{color:var(--gold)}
+.coll-desc{font-size:14px;font-weight:300;color:var(--mid);line-height:1.7;margin-bottom:16px}
+.coll-price{font-family:var(--ff-display);font-size:16px;font-style:italic;color:rgba(248,248,250,.4)}
+.coll-bar{position:absolute;bottom:0;left:0;width:0;height:.5px;background:var(--gold);transition:width .5s var(--ease)}
+.coll-card:hover .coll-bar{width:100%}
+
+/* SERVICES */
+.svc-sec{background:var(--black)}
+.svc-list{display:flex;flex-direction:column;gap:0;margin-top:64px}
+.svc-row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:32px 0;border-bottom:.5px solid rgba(184,151,58,.1);cursor:pointer;transition:all .3s}
+.svc-row:first-child{border-top:.5px solid rgba(184,151,58,.1)}
+.svc-row:hover{padding-left:16px}
+.svc-row:hover .svc-row-title{color:var(--gold)}
+.svc-row:hover .svc-row-arrow{transform:translateX(6px) scale(1.2);color:var(--gold)}
+.svc-row-left{display:flex;align-items:center;gap:28px}
+.svc-row-num{font-family:var(--ff-display);font-size:14px;font-style:italic;color:rgba(184,151,58,.35);min-width:28px}
+.svc-row-title{font-family:var(--ff-display);font-size:clamp(20px,2.5vw,32px);font-weight:300;transition:color .3s}
+.svc-row-desc{font-size:13px;font-weight:300;color:var(--mid);max-width:360px;display:none}
+@media(min-width:768px){.svc-row-desc{display:block}}
+.svc-row-right{display:flex;align-items:center;gap:24px;flex-shrink:0}
+.svc-row-price{font-size:14px;font-weight:300;color:var(--mid)}
+.svc-row-arrow{font-size:20px;color:rgba(184,151,58,.4);transition:all .3s}
+
+/* ABOUT */
+.about-sec{background:var(--dark2)}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:72px}
+@media(max-width:900px){.about-layout{grid-template-columns:1fr;gap:40px}}
+.about-img-col{position:relative}
+.about-main-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;filter:grayscale(15%);transition:filter .4s}
+.about-img-col:hover .about-main-img{filter:grayscale(0%)}
+.about-year-badge{position:absolute;top:0;right:0;background:var(--gold);color:var(--black);padding:20px 24px;font-family:var(--ff-display)}
+.about-year-num{font-size:36px;font-weight:600;line-height:1}
+.about-year-lbl{font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase}
+.about-text{display:flex;flex-direction:column;gap:22px}
+.about-quote{font-family:var(--ff-display);font-size:clamp(18px,2.5vw,28px);font-weight:300;font-style:italic;color:var(--white);line-height:1.5;border-left:.5px solid var(--gold);padding-left:24px}
+.about-p{font-size:15px;font-weight:300;color:var(--mid);line-height:1.9}
+.about-feat{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--dark3);border-left:1.5px solid transparent;font-size:14px;font-weight:300;color:var(--silver-light);transition:all .3s}
+.about-feat:hover{border-color:var(--gold);background:var(--dark);padding-left:26px;color:var(--white)}
+.about-feat-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* GALLERY */
+.gallery-sec{background:var(--dark)}
+.gallery-masonry{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:280px 280px;gap:2px;margin-top:64px}
+@media(max-width:900px){.gallery-masonry{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}}
+.gitem{overflow:hidden;position:relative;cursor:pointer}
+.gitem:nth-child(2){grid-row:span 2}
+.gitem:nth-child(6){grid-column:span 2}
+@media(max-width:900px){.gitem:nth-child(2),.gitem:nth-child(6){grid-row:span 1;grid-column:span 1}}
+.gitem img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(30%) brightness(.9);transition:filter .5s,transform .5s}
+.gitem:hover img{filter:grayscale(0%) brightness(1.05);transform:scale(1.07)}
+.gover{position:absolute;inset:0;background:rgba(8,8,10,0);display:flex;align-items:flex-end;padding:20px;transition:background .35s}
+.gitem:hover .gover{background:rgba(8,8,10,.5)}
+.gcap{font-family:var(--ff-display);font-size:16px;font-style:italic;font-weight:300;color:#fff;opacity:0;transform:translateY(8px);transition:all .35s}
+.gitem:hover .gcap{opacity:1;transform:translateY(0)}
+
+/* INFO */
+.info-sec{display:grid;grid-template-columns:repeat(3,1fr);background:var(--dark3)}
+@media(max-width:900px){.info-sec{grid-template-columns:1fr}}
+.icell{padding:64px 52px;border-right:.5px solid rgba(184,151,58,.08);transition:background .3s}
+.icell:hover{background:rgba(184,151,58,.03)}
+.icell:last-child{border-right:none}
+@media(max-width:900px){.icell{padding:40px 24px;border-right:none;border-bottom:.5px solid rgba(184,151,58,.08)}.icell:last-child{border-bottom:none}}
+.ico-thin{width:40px;height:40px;border-radius:50%;border:.5px solid rgba(184,151,58,.25);display:flex;align-items:center;justify-content:center;margin-bottom:24px;transition:transform .3s var(--ease),border-color .3s}
+.icell:hover .ico-thin{transform:rotate(15deg) scale(1.1);border-color:rgba(184,151,58,.6)}
+.ico-thin svg{width:18px;height:18px;stroke:rgba(184,151,58,.7);fill:none;stroke-width:1}
+.ilbl{font-size:10px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.ival{font-family:var(--ff-display);font-size:20px;font-weight:300;font-style:italic;color:var(--white);line-height:1.65;margin-bottom:6px}
+.inote{font-size:13px;font-weight:300;color:rgba(248,248,250,.25);line-height:1.75}
+.ibtns{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.ibtn{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:transform .3s,box-shadow .3s}
+.ibtn:hover{transform:translateY(-2px) scale(1.03)}
+.ibtn-wa{background:#25D366;color:#fff}.ibtn-wa:hover{box-shadow:0 6px 20px rgba(37,211,102,.4)}
+.ibtn-gold{background:var(--gold);color:var(--black);font-weight:500}.ibtn-gold:hover{box-shadow:0 6px 20px rgba(184,151,58,.4)}
+
+/* REVIEWS */
+.rev-sec{background:var(--black)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,151,58,.06);margin-top:56px}
+@media(max-width:900px){.rev-grid{grid-template-columns:1fr;gap:16px;background:none}}
+.rcard{background:var(--black);padding:44px 36px;border-top:.5px solid transparent;transition:all .4s}
+.rcard:hover{border-color:var(--gold);background:var(--dark);transform:translateY(-6px)}
+.rstars{font-size:14px;margin-bottom:20px;letter-spacing:4px;color:var(--gold)}
+.rtext{font-family:var(--ff-display);font-size:20px;font-weight:300;font-style:italic;line-height:1.6;margin-bottom:24px;color:var(--white)}
+.rauthor{display:flex;align-items:center;gap:12px}
+.ravatar{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;border:.5px solid rgba(184,151,58,.2)}
+.ravatar img{width:100%;height:100%;object-fit:cover;filter:grayscale(30%)}
+.rname{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--white)}
+.rmeta{font-size:12px;font-weight:300;color:var(--mid)}
+
+/* CTA */
+.cta-sec{position:relative;overflow:hidden;padding:120px 80px;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;background:var(--dark2)}
+@media(max-width:768px){.cta-sec{padding:72px 24px;flex-direction:column;align-items:flex-start}}
+.cta-sec::before{content:'';position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;border:.5px solid rgba(184,151,58,.08)}
+.cta-sec::after{content:'';position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:280px;height:280px;border-radius:50%;border:.5px solid rgba(184,151,58,.06)}
+.cta-content{position:relative;z-index:1}
+.cta-h2{font-family:var(--ff-display);font-size:clamp(32px,4vw,60px);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:12px}
+.cta-h2 em{font-style:italic;color:var(--gold)}
+.cta-p{font-size:16px;font-weight:300;color:rgba(248,248,250,.35);max-width:420px}
+.cta-btns{position:relative;z-index:1;display:flex;gap:14px;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:#050507;color:rgba(248,248,250,.3);padding:80px 80px 44px}
+@media(max-width:768px){footer{padding:52px 24px 32px}}
+.ftgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:52px;border-bottom:.5px solid rgba(184,151,58,.08);margin-bottom:36px}
+@media(max-width:900px){.ftgrid{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:500px){.ftgrid{grid-template-columns:1fr}}
+.ftlogo-main{font-family:var(--ff-display);font-size:22px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--white);margin-bottom:4px}
+.ftlogo-main span{color:var(--gold);font-weight:600}
+.ftlogo-sub{font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(184,151,58,.3);margin-bottom:18px}
+.ftdesc{font-size:14px;font-weight:300;line-height:1.85;margin-bottom:22px}
+.ftsocs{display:flex;gap:10px}
+.ftsoc{width:34px;height:34px;border-radius:50%;background:rgba(184,151,58,.05);border:.5px solid rgba(184,151,58,.12);display:flex;align-items:center;justify-content:center;color:rgba(184,151,58,.4);font-size:11px;text-decoration:none;transition:all .3s}
+.ftsoc:hover{background:var(--gold);color:var(--black);transform:scale(1.15);border-color:transparent}
+.ftcol h4{font-size:10px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ftcol ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftcol ul li a{font-size:14px;font-weight:300;color:rgba(248,248,250,.3);text-decoration:none;transition:all .25s}
+.ftcol ul li a:hover{color:var(--white);padding-left:6px}
+.ftbot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ftcopy{font-size:11px}
+.ftcredit{font-size:11px}.ftcredit a{color:var(--gold);text-decoration:none}.ftcredit a:hover{color:var(--gold2)}
+
+/* STICKY */
+.sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:10px 16px 14px;background:rgba(5,5,7,.98);backdrop-filter:blur(12px);border-top:.5px solid rgba(184,151,58,.15);gap:10px}
+@media(max-width:768px){.sticky{display:flex}}
+.sbtn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;font-size:12px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.sbtn:hover{transform:scale(1.03)}
+.swa{background:#25D366;color:#fff}.swa:hover{box-shadow:0 4px 20px rgba(37,211,102,.5)}
+.sgold{background:var(--gold);color:var(--black);font-weight:500}.sgold:hover{box-shadow:0 4px 20px rgba(184,151,58,.5)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes zoomOut{from{transform:scale(1.04)}to{transform:scale(1)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <a href="#" class="logo"><div class="logo-main">Maison <span>Relógio</span></div><div class="logo-sub">Relojoaria & Joalharia · Porto · Est. 1978</div></a>
+  <nav><ul>
+    <li><a href="#colecao">Coleção</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul></nav>
+  <a href="https://wa.me/351912345678" class="nav-cta" target="_blank">Consultar</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-kicker"><div class="hero-kicker-line"></div><span class="hero-kicker-text">Porto · Relojoaria & Joalharia · Desde 1978</span></div>
+    <h1 class="hero-h1">O tempo<br>em peças<br><em>eternas</em></h1>
+    <p class="hero-desc">Relógios de coleção e joias que passam de geração em geração. Reparação, avaliação e peças únicas de autor.</p>
+    <div class="hero-btns">
+      <a href="#colecao" class="btn-gold">Explorar coleção</a>
+      <a href="https://wa.me/351912345678" class="btn-border" target="_blank">Consultar →</a>
+    </div>
+    <div class="hero-meta">
+      <div><div class="hmeta-num">47</div><div class="hmeta-lbl">Anos de tradição</div></div>
+      <div><div class="hmeta-num">4.9</div><div class="hmeta-lbl">Google Maps</div></div>
+      <div><div class="hmeta-num">5000+</div><div class="hmeta-lbl">Peças reparadas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="tick-track">
+    <div class="tick-item"><span>Relógios de Coleção</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Joalharia de Autor</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Reparação de Relógios</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Avaliação de Peças</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Gravação a Laser</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Alianças de Casamento</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Relógios de Coleção</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Joalharia de Autor</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Reparação de Relógios</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Avaliação de Peças</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Gravação a Laser</span><span class="tick-dot"></span></div>
+    <div class="tick-item"><span>Alianças de Casamento</span><span class="tick-dot"></span></div>
+  </div>
+</div>
+
+<!-- COLEÇÃO -->
+<section class="sec coll-sec" id="colecao">
+  <div class="reveal"><div class="stag">A nossa coleção</div><h2 class="stitle">Peças que<br><em>resistem ao tempo</em></h2><p class="ssub">Cada peça tem uma história. Selecionamos apenas relógios e joias de qualidade comprovada e valor duradouro.</p></div>
+  <div class="coll-grid">
+    <div class="coll-card reveal d1">
+      <img class="coll-img" src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&q=80&fit=crop" alt="Relógio" loading="lazy">
+      <div class="coll-body">
+        <div class="coll-cat">Relojoaria</div>
+        <h3 class="coll-title">Relógios de Coleção</h3>
+        <p class="coll-desc">Omega, Longines, Tissot e marcas independentes. Peças vintage e contemporâneas com certificado de autenticidade.</p>
+        <p class="coll-price">A partir de 350€</p>
+      </div>
+      <div class="coll-bar"></div>
+    </div>
+    <div class="coll-card reveal d2">
+      <img class="coll-img" src="https://images.unsplash.com/photo-1573408301185-9519f94616ff?w=600&q=80&fit=crop" alt="Joalharia" loading="lazy">
+      <div class="coll-body">
+        <div class="coll-cat">Joalharia</div>
+        <h3 class="coll-title">Joalharia Fina</h3>
+        <p class="coll-desc">Anéis, colares, brincos e pulseiras em ouro e prata. Pedras preciosas e semipreciosas de origem certificada.</p>
+        <p class="coll-price">A partir de 120€</p>
+      </div>
+      <div class="coll-bar"></div>
+    </div>
+    <div class="coll-card reveal d3">
+      <img class="coll-img" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&fit=crop" alt="Alianças" loading="lazy">
+      <div class="coll-body">
+        <div class="coll-cat">Alianças & Noiva</div>
+        <h3 class="coll-title">Alianças de Casamento</h3>
+        <p class="coll-desc">Alianças em ouro amarelo, branco e rosa. Modelos clássicos, modernos e personalizados. Gravação incluída.</p>
+        <p class="coll-price">Consultar</p>
+      </div>
+      <div class="coll-bar"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="sec svc-sec" id="servicos">
+  <div class="reveal"><div class="stag">Serviços</div><h2 class="stitle">A perícia que<br>as suas peças <em>merecem</em></h2><p class="ssub">Mais de 47 anos a reparar, avaliar e cuidar das peças mais preciosas dos nossos clientes.</p></div>
+  <div class="svc-list reveal">
+    <div class="svc-row">
+      <div class="svc-row-left">
+        <span class="svc-row-num">01</span>
+        <h3 class="svc-row-title">Reparação de Relógios</h3>
+        <p class="svc-row-desc">Revisão completa de mecanismo, substituição de peças e limpeza ultrassónica. Todas as marcas.</p>
+      </div>
+      <div class="svc-row-right">
+        <span class="svc-row-price">A partir de 45€</span>
+        <span class="svc-row-arrow">→</span>
+      </div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-row-left">
+        <span class="svc-row-num">02</span>
+        <h3 class="svc-row-title">Avaliação de Peças</h3>
+        <p class="svc-row-desc">Certificado de avaliação para seguros, heranças ou venda. Avaliadores certificados e imparciais.</p>
+      </div>
+      <div class="svc-row-right">
+        <span class="svc-row-price">Consultar</span>
+        <span class="svc-row-arrow">→</span>
+      </div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-row-left">
+        <span class="svc-row-num">03</span>
+        <h3 class="svc-row-title">Gravação a Laser</h3>
+        <p class="svc-row-desc">Personalização de relógios, joias e outros objetos preciosos. Textos, datas e desenhos com precisão absoluta.</p>
+      </div>
+      <div class="svc-row-right">
+        <span class="svc-row-price">A partir de 15€</span>
+        <span class="svc-row-arrow">→</span>
+      </div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-row-left">
+        <span class="svc-row-num">04</span>
+        <h3 class="svc-row-title">Restauro de Joalharia</h3>
+        <p class="svc-row-desc">Limpeza, polimento, substituição de pedras e restauro de peças antigas ou danificadas.</p>
+      </div>
+      <div class="svc-row-right">
+        <span class="svc-row-price">Orçamento grátis</span>
+        <span class="svc-row-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sec about-sec" id="sobre">
+  <div class="reveal"><div class="stag">A nossa história</div><h2 class="stitle">47 anos de<br><em>excelência</em></h2></div>
+  <div class="about-layout">
+    <div class="about-img-col reveal">
+      <img class="about-main-img" src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?w=600&q=85&fit=crop" alt="Relojoeiro" loading="lazy">
+      <div class="about-year-badge"><div class="about-year-num">1978</div><div class="about-year-lbl">fundação</div></div>
+    </div>
+    <div class="about-text reveal d2">
+      <blockquote class="about-quote">"Um relógio não é apenas uma forma de medir o tempo. É uma forma de o guardar."</blockquote>
+      <p class="about-p">A Maison Relógio foi fundada em 1978 pelo relojoeiro Manuel Soares, com uma oficina no coração do Porto. Ao longo de quase cinco décadas, tornámo-nos uma referência para colecionadores e para quem procura a peça perfeita para uma ocasião especial.</p>
+      <p class="about-p">Hoje, a terceira geração da família continua a tradição — com as mesmas ferramentas de precisão, o mesmo rigor e o mesmo amor pelo detalhe.</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div class="about-feat"><span class="about-feat-dot"></span> Relojoeiros certificados</div>
+        <div class="about-feat"><span class="about-feat-dot"></span> 3 gerações da mesma família</div>
+        <div class="about-feat"><span class="about-feat-dot"></span> Todas as marcas reparadas</div>
+        <div class="about-feat"><span class="about-feat-dot"></span> Avaliação grátis na primeira visita</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec gallery-sec">
+  <div class="reveal"><div class="stag">Galeria</div><h2 class="stitle">O detalhe que<br>nos <em>define</em></h2></div>
+  <div class="gallery-masonry">
+    <div class="gitem reveal"><img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500&q=80&fit=crop" alt="Relógio" loading="lazy"><div class="gover"><span class="gcap">Mecanismo suíço</span></div></div>
+    <div class="gitem reveal d1"><img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=500&q=80&fit=crop" alt="Relógio detalhe" loading="lazy"><div class="gover"><span class="gcap">Precision watchmaking</span></div></div>
+    <div class="gitem reveal d2"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&q=80&fit=crop" alt="Anel" loading="lazy"><div class="gover"><span class="gcap">Joalharia de autor</span></div></div>
+    <div class="gitem reveal d3"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&q=80&fit=crop" alt="Joia" loading="lazy"><div class="gover"><span class="gcap">Pedras preciosas</span></div></div>
+    <div class="gitem reveal"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=500&q=80&fit=crop" alt="Relógio" loading="lazy"><div class="gover"><span class="gcap">Coleção vintage</span></div></div>
+    <div class="gitem reveal d2"><img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80&fit=crop" alt="Aliança" loading="lazy"><div class="gover"><span class="gcap">Alianças personalizadas</span></div></div>
+  </div>
+</section>
+
+<!-- INFO -->
+<div class="info-sec" id="contacto">
+  <div class="icell reveal">
+    <div class="ico-thin"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+    <p class="ilbl">Localização</p>
+    <p class="ival">Rua de Santa Catarina, 314<br>Porto, 4000-451</p>
+    <p class="inote">Entre Bolhão e o centro histórico<br>Estacionamento nas proximidades</p>
+  </div>
+  <div class="icell reveal d1">
+    <div class="ico-thin"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+    <p class="ilbl">Horário</p>
+    <p class="ival">Seg–Sex: 10h–19h<br>Sábado: 10h–13h</p>
+    <p class="inote">Domingo: encerrado<br>Atendimento por marcação</p>
+  </div>
+  <div class="icell reveal d2">
+    <div class="ico-thin"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 13.5 19.5 19.5 0 011.07 4.82 2 2 0 013.05 2.63h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L7.91 10a16 16 0 006 6l.72-.72a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 17.42z"/></svg></div>
+    <p class="ilbl">Contacto</p>
+    <p class="ival">+351 912 345 678</p>
+    <p class="inote">Consultas por WhatsApp<br>Orçamentos em 24 horas</p>
+    <div class="ibtns">
+      <a href="https://wa.me/351912345678" class="ibtn ibtn-wa" target="_blank">WhatsApp</a>
+      <a href="tel:+351912345678" class="ibtn ibtn-gold">Ligar</a>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="sec rev-sec">
+  <div class="reveal"><div class="stag">Testemunhos</div><h2 class="stitle">A confiança dos<br>nossos <em>clientes</em></h2></div>
+  <div class="rev-grid">
+    <div class="rcard reveal d1">
+      <div class="rstars">★★★★★</div>
+      <p class="rtext">"Trouxe o meu Omega de 1965 para reparação. Voltou a funcionar como novo. Mestria indiscutível."</p>
+      <div class="rauthor"><div class="ravatar"><img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=80&q=80&fit=crop&crop=face" loading="lazy"></div><div><div class="rname">Fernando Costa</div><div class="rmeta">Google Maps · há 1 semana</div></div></div>
+    </div>
+    <div class="rcard reveal d2">
+      <div class="rstars">★★★★★</div>
+      <p class="rtext">"Comprei as alianças de casamento aqui. Qualidade excecional e o serviço de gravação foi perfeito. Uma recordação para sempre."</p>
+      <div class="rauthor"><div class="ravatar"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80&fit=crop&crop=face" loading="lazy"></div><div><div class="rname">Marta & João Silva</div><div class="rmeta">Google Maps · há 3 semanas</div></div></div>
+    </div>
+    <div class="rcard reveal d3">
+      <div class="rstars">★★★★★</div>
+      <p class="rtext">"A avaliação foi rigorosa e o certificado impecável. O atendimento é de outro nível. Uma referência no Porto."</p>
+      <div class="rauthor"><div class="ravatar"><img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=80&q=80&fit=crop&crop=face" loading="lazy"></div><div><div class="rname">António Guedes</div><div class="rmeta">Google Maps · há 2 meses</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-sec">
+  <div class="cta-content reveal">
+    <h2 class="cta-h2">Tem uma peça<br>especial para nos<br><em>mostrar?</em></h2>
+    <p class="cta-p">Reparação, avaliação ou uma nova aquisição — estamos à sua disposição.</p>
+  </div>
+  <div class="cta-btns reveal d2">
+    <a href="https://wa.me/351912345678" class="btn-gold" target="_blank">Consultar pelo WhatsApp</a>
+    <a href="tel:+351912345678" class="btn-border">Ligar agora</a>
+  </div>
+</div>
+
+<footer>
+  <div class="ftgrid">
+    <div>
+      <div class="ftlogo-main">Maison <span>Relógio</span></div>
+      <div class="ftlogo-sub">Relojoaria & Joalharia · Porto · Est. 1978</div>
+      <p class="ftdesc">Relojoaria e joalharia fina no Porto há 47 anos. Reparação, avaliação e coleção de peças únicas. Três gerações ao seu serviço.</p>
+      <div class="ftsocs"><a href="#" class="ftsoc">ig</a><a href="#" class="ftsoc">fb</a><a href="https://wa.me/351912345678" class="ftsoc">wa</a></div>
+    </div>
+    <div class="ftcol"><h4>Coleção</h4><ul><li><a href="#">Relógios</a></li><li><a href="#">Joalharia</a></li><li><a href="#">Alianças</a></li><li><a href="#">Vintage</a></li></ul></div>
+    <div class="ftcol"><h4>Serviços</h4><ul><li><a href="#">Reparação</a></li><li><a href="#">Avaliação</a></li><li><a href="#">Gravação</a></li><li><a href="#">Restauro</a></li></ul></div>
+    <div class="ftcol"><h4>Horário</h4><ul><li><a href="#">Seg–Sex: 10h–19h</a></li><li><a href="#">Sábado: 10h–13h</a></li><li><a href="#">Domingo: Encerrado</a></li><li><a href="#" style="color:var(--gold)">+351 912 345 678</a></li></ul></div>
+  </div>
+  <div class="ftbot">
+    <p class="ftcopy">© 2025 Maison Relógio. Todos os direitos reservados.</p>
+    <p class="ftcredit">Site criado por <a href="#">UrbanFlow</a></p>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a href="https://wa.me/351912345678" class="sbtn swa" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <a href="tel:+351912345678" class="sbtn sgold">Consultar</a>
+</div>
+
+<script>
+  const hdr=document.getElementById('hdr');
+  window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+  const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patinhas & Cia — Pet Shop | Porto</title>
+<meta name="description" content="Patinhas & Cia — Pet shop no Porto. Ração, acessórios, banho & tosquia e cuidados veterinários. O melhor para o teu animal.">
+<meta property="og:title" content="Patinhas & Cia — Pet Shop no Porto">
+<meta property="og:description" content="Ração premium, acessórios, banho e tosquia. Tudo para o teu companheiro de 4 patas.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&h=630&fit=crop&q=90">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&h=630&fit=crop&q=90">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fraunces:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --orange:#E8651A;--orange-light:#F59547;--orange-pale:#FEF3EC;
+  --teal:#1A8A7A;--teal-light:#4DB6A8;--teal-pale:#EAF6F4;
+  --yellow:#F5C842;--cream:#FFFBF5;--white:#FFFFFF;
+  --dark:#1C1810;--mid:#7A6B55;--light:#D4C8B0;
+  --ff-display:'Fraunces',Georgia,serif;--ff-body:'Nunito',sans-serif;
+  --ease:cubic-bezier(.34,1.56,.64,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--dark);font-family:var(--ff-body);font-weight:400;line-height:1.65;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--orange-pale)}::-webkit-scrollbar-thumb{background:var(--orange);border-radius:3px}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 60px;transition:all .35s}
+header.scrolled{background:rgba(255,251,245,.96);backdrop-filter:blur(16px);padding:12px 60px;box-shadow:0 2px 24px rgba(0,0,0,.07)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;transition:transform .3s var(--ease)}
+.logo:hover .logo-icon{transform:scale(1.15) rotate(-10deg)}
+.logo-text{font-family:var(--ff-body);font-size:20px;font-weight:800;color:var(--dark)}
+.logo-text span{color:var(--orange)}
+nav ul{display:flex;gap:28px;list-style:none}
+nav ul a{font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--mid);text-decoration:none;padding:6px 10px;border-radius:20px;transition:all .25s}
+nav ul a:hover{background:var(--orange-pale);color:var(--orange)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;padding:11px 24px;text-decoration:none;border-radius:40px;transition:all .3s var(--ease)}
+.nav-cta:hover{background:var(--dark);transform:scale(1.05) translateY(-1px)}
+@media(max-width:900px){header{padding:14px 20px}header.scrolled{padding:10px 20px}nav ul{display:none}}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding-top:80px;position:relative;overflow:hidden;background:var(--orange-pale)}
+.hero::before{content:'';position:absolute;right:0;top:0;width:55%;height:100%;background:var(--teal-pale);clip-path:polygon(8% 0,100% 0,100% 100%,0 100%)}
+.hero-left{padding:60px 60px 60px 80px;position:relative;z-index:2}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--orange);color:var(--orange);font-size:12px;font-weight:700;letter-spacing:.08em;padding:7px 16px;border-radius:40px;margin-bottom:24px;opacity:0;animation:fadeUp .7s .2s forwards}
+.hero-h1{font-family:var(--ff-display);font-size:clamp(44px,5vw,80px);font-weight:700;line-height:1.05;margin-bottom:20px;opacity:0;animation:fadeUp .8s .35s forwards}
+.hero-h1 em{font-style:italic;color:var(--orange)}
+.hero-desc{font-size:16px;color:var(--mid);max-width:420px;margin-bottom:44px;line-height:1.8;opacity:0;animation:fadeUp .8s .5s forwards}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;opacity:0;animation:fadeUp .8s .65s forwards}
+.btn-orange{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:16px 36px;text-decoration:none;border-radius:40px;transition:all .3s var(--ease)}
+.btn-orange:hover{background:var(--dark);transform:translateY(-3px) scale(1.03);box-shadow:0 12px 32px rgba(232,101,26,.35)}
+.btn-teal{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#fff;font-size:14px;font-weight:700;padding:16px 28px;text-decoration:none;border-radius:40px;transition:all .3s var(--ease)}
+.btn-teal:hover{background:var(--dark);transform:translateY(-3px) scale(1.03)}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s forwards}
+.badge{display:inline-flex;align-items:center;gap:6px;background:#fff;padding:8px 16px;border-radius:40px;font-size:13px;font-weight:600;color:var(--dark);box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:60px 60px 60px 20px;opacity:0;animation:fadeIn .9s .4s forwards}
+.hero-img-wrap{position:relative}
+.hero-img{width:420px;max-width:100%;border-radius:24px;object-fit:cover;aspect-ratio:4/5;display:block;box-shadow:0 24px 64px rgba(0,0,0,.15)}
+.hero-float{position:absolute;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:0 8px 28px rgba(0,0,0,.12);display:flex;align-items:center;gap:10px}
+.hero-float-1{top:32px;left:-32px;animation:float 3s ease-in-out infinite}
+.hero-float-2{bottom:48px;right:-28px;animation:float 3s 1.5s ease-in-out infinite}
+.hero-float-icon{font-size:22px}
+.hero-float-text{font-size:13px;font-weight:700;color:var(--dark)}
+.hero-float-sub{font-size:11px;color:var(--mid)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:768px){.hero{grid-template-columns:1fr;grid-template-rows:auto auto;min-height:auto;padding-top:70px}.hero::before{display:none}.hero-left{padding:40px 24px 20px}.hero-right{padding:20px 24px 40px}.hero-img{width:100%;max-width:360px}.hero-float-1{left:-12px}.hero-float-2{right:-12px}}
+
+/* MARQUEE */
+.mbar{background:var(--orange);padding:12px 0;overflow:hidden}
+.mtrack{display:inline-flex;animation:marquee 20s linear infinite}
+.mitem{display:inline-flex;align-items:center;gap:12px;padding:0 24px;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.mdot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.5)}
+
+/* SECTION */
+.sec{padding:100px 80px}
+@media(max-width:768px){.sec{padding:64px 24px}}
+.stag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.stag span{background:var(--orange-pale);padding:3px 10px;border-radius:40px}
+.stitle{font-family:var(--ff-display);font-size:clamp(32px,4vw,56px);font-weight:700;line-height:1.1;margin-bottom:16px}
+.stitle em{font-style:italic;color:var(--orange)}
+.ssub{font-size:16px;color:var(--mid);max-width:480px;line-height:1.75}
+
+/* SERVICES */
+.svc-sec{background:var(--white)}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px}
+@media(max-width:700px){.svc-grid{grid-template-columns:1fr}}
+.svc-card{border-radius:20px;overflow:hidden;position:relative;cursor:pointer;transition:transform .4s var(--ease),box-shadow .4s}
+.svc-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 24px 60px rgba(232,101,26,.15)}
+.svc-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s}
+.svc-card:hover .svc-img{transform:scale(1.07)}
+.svc-body{padding:28px 28px 32px;background:var(--white)}
+.svc-icon{font-size:28px;margin-bottom:10px}
+.svc-title{font-size:20px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.svc-desc{font-size:14px;color:var(--mid);line-height:1.7;margin-bottom:14px}
+.svc-pill{display:inline-flex;align-items:center;gap:6px;background:var(--orange-pale);color:var(--orange);font-size:12px;font-weight:700;padding:6px 14px;border-radius:40px}
+
+/* SOBRE */
+.about-sec{background:var(--teal-pale)}
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:center;margin-top:64px}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px}}
+.about-img-col{position:relative}
+.about-main-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;display:block;box-shadow:0 16px 48px rgba(0,0,0,.12);transition:transform .4s}
+.about-img-col:hover .about-main-img{transform:scale(1.02)}
+.about-sticker{position:absolute;bottom:-20px;right:-20px;background:var(--orange);color:#fff;width:110px;height:110px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--ff-display);box-shadow:0 8px 28px rgba(232,101,26,.4)}
+.about-sticker-num{font-size:30px;font-weight:700;line-height:1}
+.about-sticker-lbl{font-size:11px;font-weight:400;text-align:center;line-height:1.3}
+.about-content{display:flex;flex-direction:column;gap:20px}
+.about-quote{font-family:var(--ff-display);font-size:clamp(18px,2.2vw,24px);font-style:italic;color:var(--teal);line-height:1.55;border-left:4px solid var(--orange);padding-left:20px}
+.about-p{font-size:15px;color:var(--mid);line-height:1.85}
+.about-feat{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#fff;border-radius:14px;font-size:14px;font-weight:600;color:var(--dark);transition:transform .3s var(--ease),box-shadow .3s}
+.about-feat:hover{transform:scale(1.02) translateX(4px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.about-feat-icon{font-size:22px}
+
+/* GALERIA */
+.gallery-sec{background:var(--cream)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:280px 280px;gap:12px;margin-top:56px}
+@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}}
+.gitem{overflow:hidden;border-radius:16px;position:relative;cursor:pointer}
+.gitem:nth-child(1){grid-column:span 2}
+@media(max-width:900px){.gitem:nth-child(1){grid-column:span 1}}
+.gitem img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.gitem:hover img{transform:scale(1.09)}
+.gover{position:absolute;inset:0;background:rgba(28,24,16,0);border-radius:16px;display:flex;align-items:flex-end;padding:20px;transition:background .35s}
+.gitem:hover .gover{background:rgba(28,24,16,.4)}
+.gcap{font-family:var(--ff-display);font-size:17px;font-style:italic;color:#fff;opacity:0;transform:translateY(8px);transition:all .35s}
+.gitem:hover .gcap{opacity:1;transform:translateY(0)}
+
+/* INFO */
+.info-strip{display:grid;grid-template-columns:repeat(3,1fr);background:var(--dark)}
+@media(max-width:900px){.info-strip{grid-template-columns:1fr}}
+.info-cell{padding:60px 48px;border-right:1px solid rgba(255,255,255,.07);transition:background .3s}
+.info-cell:hover{background:rgba(232,101,26,.08)}
+.info-cell:last-child{border-right:none}
+@media(max-width:900px){.info-cell{padding:40px 24px;border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}.info-cell:last-child{border-bottom:none}}
+.info-ico{width:48px;height:48px;border-radius:16px;background:rgba(232,101,26,.15);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:24px;transition:transform .3s var(--ease)}
+.info-cell:hover .info-ico{transform:scale(1.15) rotate(-5deg)}
+.info-lbl{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange-light);margin-bottom:12px}
+.info-val{font-size:18px;font-weight:700;color:#fff;line-height:1.6;margin-bottom:6px}
+.info-note{font-size:13px;color:rgba(255,251,245,.35);line-height:1.7}
+.ibtns{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.ibtn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;padding:11px 20px;border-radius:40px;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s}
+.ibtn:hover{transform:scale(1.05) translateY(-2px)}
+.ibtn-wa{background:#25D366;color:#fff}.ibtn-wa:hover{box-shadow:0 6px 20px rgba(37,211,102,.4)}
+.ibtn-tel{background:var(--orange);color:#fff}.ibtn-tel:hover{box-shadow:0 6px 20px rgba(232,101,26,.4)}
+
+/* REVIEWS */
+.rev-sec{background:var(--orange-pale)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+@media(max-width:900px){.rev-grid{grid-template-columns:1fr}}
+.rcard{background:#fff;padding:32px 28px;border-radius:20px;transition:transform .35s var(--ease),box-shadow .35s}
+.rcard:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 56px rgba(232,101,26,.12)}
+.rstars{font-size:16px;margin-bottom:16px;letter-spacing:2px}
+.rtext{font-family:var(--ff-display);font-size:17px;font-style:italic;line-height:1.65;margin-bottom:20px;color:var(--dark)}
+.rauthor{display:flex;align-items:center;gap:10px}
+.ravatar{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.ravatar img{width:100%;height:100%;object-fit:cover}
+.rname{font-size:13px;font-weight:700;color:var(--dark)}
+.rmeta{font-size:12px;color:var(--mid)}
+
+/* CTA */
+.cta-sec{background:var(--teal);padding:96px 80px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;position:relative;overflow:hidden}
+@media(max-width:768px){.cta-sec{padding:64px 24px;flex-direction:column;align-items:flex-start}}
+.cta-sec::before{content:'🐾';position:absolute;right:5%;bottom:-10%;font-size:220px;opacity:.06;user-select:none}
+.cta-sec::after{content:'🐾';position:absolute;left:40%;top:-15%;font-size:160px;opacity:.04;user-select:none;transform:rotate(25deg)}
+.cta-content{position:relative;z-index:1}
+.cta-h2{font-family:var(--ff-display);font-size:clamp(28px,3.5vw,52px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:10px}
+.cta-h2 em{font-style:italic}
+.cta-p{font-size:16px;color:rgba(255,255,255,.65);max-width:400px}
+.cta-btns{position:relative;z-index:1;display:flex;gap:14px;flex-wrap:wrap}
+.btn-white{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--teal);font-size:14px;font-weight:700;padding:16px 36px;text-decoration:none;border-radius:40px;transition:all .3s var(--ease)}
+.btn-white:hover{background:var(--orange);color:#fff;transform:translateY(-3px) scale(1.02);box-shadow:0 12px 32px rgba(0,0,0,.2)}
+.btn-ow{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;font-size:14px;font-weight:600;padding:16px 28px;text-decoration:none;border:2px solid rgba(255,255,255,.3);border-radius:40px;transition:all .3s var(--ease)}
+.btn-ow:hover{border-color:#fff;transform:translateY(-3px) scale(1.02)}
+
+/* FOOTER */
+footer{background:#130F0A;color:rgba(255,251,245,.45);padding:64px 80px 36px}
+@media(max-width:768px){footer{padding:48px 24px 28px}}
+.ftgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:28px}
+@media(max-width:900px){.ftgrid{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:500px){.ftgrid{grid-template-columns:1fr}}
+.ftlogo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ftlogo-icon{width:36px;height:36px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+.ftlogo-text{font-size:20px;font-weight:800;color:#fff}
+.ftlogo-text span{color:var(--orange-light)}
+.ftdesc{font-size:14px;line-height:1.8;margin-bottom:20px}
+.ftsocs{display:flex;gap:10px}
+.ftsoc{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,251,245,.4);font-size:12px;text-decoration:none;transition:all .3s}
+.ftsoc:hover{background:var(--orange);color:#fff;transform:scale(1.15);border-color:transparent}
+.ftcol h4{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-light);margin-bottom:16px}
+.ftcol ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftcol ul li a{font-size:14px;color:rgba(255,251,245,.4);text-decoration:none;transition:all .25s}
+.ftcol ul li a:hover{color:#fff;padding-left:6px}
+.ftbot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ftcopy{font-size:12px}
+.ftcredit{font-size:12px}.ftcredit a{color:var(--orange-light);text-decoration:none;transition:color .3s}.ftcredit a:hover{color:var(--orange)}
+
+/* STICKY */
+.sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:10px 16px 14px;background:rgba(19,15,10,.96);backdrop-filter:blur(12px);border-top:1px solid rgba(232,101,26,.2);gap:10px}
+@media(max-width:768px){.sticky{display:flex}}
+.sbtn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;border-radius:40px;transition:transform .3s,box-shadow .3s}
+.sbtn:hover{transform:scale(1.03)}
+.swa{background:#25D366;color:#fff}.swa:hover{box-shadow:0 4px 20px rgba(37,211,102,.5)}
+.stel{background:var(--orange);color:#fff}.stel:hover{box-shadow:0 4px 20px rgba(232,101,26,.5)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .75s,transform .75s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <a href="#" class="logo"><div class="logo-icon">🐾</div><div class="logo-text">Patinhas<span> & Cia</span></div></a>
+  <nav><ul>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre nós</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul></nav>
+  <a href="https://wa.me/351912345678" class="nav-cta" target="_blank">Marcar consulta</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <div class="hero-pill">🐶 Pet Shop no Porto</div>
+    <h1 class="hero-h1">O melhor para<br>o teu <em>companheiro</em></h1>
+    <p class="hero-desc">Ração premium, acessórios, banho & tosquia e cuidados de saúde. Tudo o que o teu animal precisa, num só lugar.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/351912345678" class="btn-orange" target="_blank">Marcar consulta</a>
+      <a href="#servicos" class="btn-teal">Ver serviços →</a>
+    </div>
+    <div class="hero-badges">
+      <div class="badge">✅ Banho & Tosquia</div>
+      <div class="badge">🥩 Ração Premium</div>
+      <div class="badge">🚚 Entregas em Casa</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img class="hero-img" src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=85&fit=crop" alt="Cão feliz">
+      <div class="hero-float hero-float-1">
+        <div class="hero-float-icon">⭐</div>
+        <div><div class="hero-float-text">4.9 no Google</div><div class="hero-float-sub">+180 avaliações</div></div>
+      </div>
+      <div class="hero-float hero-float-2">
+        <div class="hero-float-icon">🐾</div>
+        <div><div class="hero-float-text">500+ animais</div><div class="hero-float-sub">clientes mensais</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mbar">
+  <div class="mtrack">
+    <div class="mitem"><span>Banho & Tosquia</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Ração Premium</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Acessórios</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Consulta Veterinária</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Suplementos</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Brinquedos</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Entrega ao Domicílio</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Banho & Tosquia</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Ração Premium</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Acessórios</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Consulta Veterinária</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Suplementos</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Brinquedos</span><span class="mdot"></span></div>
+    <div class="mitem"><span>Entrega ao Domicílio</span><span class="mdot"></span></div>
+  </div>
+</div>
+
+<!-- SERVIÇOS -->
+<section class="sec svc-sec" id="servicos">
+  <div class="reveal"><div class="stag"><span>Os nossos serviços</span></div><h2 class="stitle">Tudo o que o teu animal<br><em>merece</em></h2><p class="ssub">Desde a alimentação diária até cuidados de beleza e saúde — estamos aqui para ajudar.</p></div>
+  <div class="svc-grid">
+    <div class="svc-card reveal d1">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700&q=80&fit=crop" alt="Banho cão" loading="lazy">
+      <div class="svc-body">
+        <div class="svc-icon">🛁</div>
+        <h3 class="svc-title">Banho & Tosquia</h3>
+        <p class="svc-desc">Tratamento completo com produtos premium, secagem profissional, corte e perfume. O teu cão vai sair a brilhar!</p>
+        <div class="svc-pill">A partir de 20€</div>
+      </div>
+    </div>
+    <div class="svc-card reveal d2">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=700&q=80&fit=crop" alt="Ração premium" loading="lazy">
+      <div class="svc-body">
+        <div class="svc-icon">🥩</div>
+        <h3 class="svc-title">Alimentação Premium</h3>
+        <p class="svc-desc">Marcas líderes em nutrição animal: Royal Canin, Hill's, Acana e muito mais. Entrega ao domicílio disponível.</p>
+        <div class="svc-pill">Encomenda online</div>
+      </div>
+    </div>
+    <div class="svc-card reveal d1">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=700&q=80&fit=crop" alt="Acessórios" loading="lazy">
+      <div class="svc-body">
+        <div class="svc-icon">🎾</div>
+        <h3 class="svc-title">Acessórios & Brinquedos</h3>
+        <p class="svc-desc">Coleiras, trelas, camas, brinquedos e tudo para o conforto do teu animal. Centenas de produtos em loja.</p>
+        <div class="svc-pill">Ver catálogo</div>
+      </div>
+    </div>
+    <div class="svc-card reveal d2">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=700&q=80&fit=crop" alt="Veterinário" loading="lazy">
+      <div class="svc-body">
+        <div class="svc-icon">💉</div>
+        <h3 class="svc-title">Consultas Veterinárias</h3>
+        <p class="svc-desc">Médica veterinária disponível 3 dias por semana. Vacinação, desparasitação e check-ups de rotina.</p>
+        <div class="svc-pill">Marcar consulta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sec about-sec" id="sobre">
+  <div class="reveal"><div class="stag"><span>A nossa história</span></div><h2 class="stitle">Uma loja criada<br>por <em>amantes de animais</em></h2></div>
+  <div class="about-grid">
+    <div class="about-img-col reveal">
+      <img class="about-main-img" src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&q=85&fit=crop" alt="Cão e gato" loading="lazy">
+      <div class="about-sticker"><div class="about-sticker-num">12</div><div class="about-sticker-lbl">anos no<br>Porto</div></div>
+    </div>
+    <div class="about-content reveal d2">
+      <blockquote class="about-quote">"O nosso trabalho não é vender produtos. É cuidar dos animais que fazem parte das vossas famílias."</blockquote>
+      <p class="about-p">Abrimos em 2013 com um sonho simples: criar uma loja onde os donos de animais se sentissem bem recebidos e os seus companheiros tivessem o melhor tratamento possível.</p>
+      <p class="about-p">Hoje temos mais de 500 clientes mensais e uma equipa apaixonada por animais. Cães, gatos, coelhos, pássaros — todos são bem-vindos.</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="about-feat"><span class="about-feat-icon">🐕</span> Especialistas em comportamento animal</div>
+        <div class="about-feat"><span class="about-feat-icon">🌿</span> Produtos naturais e sustentáveis</div>
+        <div class="about-feat"><span class="about-feat-icon">💛</span> Atendimento personalizado</div>
+        <div class="about-feat"><span class="about-feat-icon">🚚</span> Entrega ao domicílio no Porto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="sec gallery-sec" id="galeria">
+  <div class="reveal"><div class="stag"><span>Galeria</span></div><h2 class="stitle">Os nossos <em>clientes</em> de 4 patas</h2></div>
+  <div class="gallery-grid">
+    <div class="gitem reveal"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=700&q=80&fit=crop" alt="Cão" loading="lazy"><div class="gover"><span class="gcap">O nosso golden do dia</span></div></div>
+    <div class="gitem reveal d1"><img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500&q=80&fit=crop" alt="Gato" loading="lazy"><div class="gover"><span class="gcap">Gatos também são bem-vindos</span></div></div>
+    <div class="gitem reveal d2"><img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=500&q=80&fit=crop" alt="Cão na natureza" loading="lazy"><div class="gover"><span class="gcap">Após banho e tosquia</span></div></div>
+    <div class="gitem reveal d3"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=500&q=80&fit=crop" alt="Cão a brincar" loading="lazy"><div class="gover"><span class="gcap">Sempre bem cuidados</span></div></div>
+    <div class="gitem reveal"><img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=500&q=80&fit=crop" alt="Cão" loading="lazy"><div class="gover"><span class="gcap">Clientes especiais</span></div></div>
+  </div>
+</section>
+
+<!-- INFO -->
+<div class="info-strip" id="contacto">
+  <div class="info-cell reveal">
+    <div class="info-ico">📍</div>
+    <p class="info-lbl">Localização</p>
+    <p class="info-val">Rua de Cedofeita, 210<br>Porto, 4050-180</p>
+    <p class="info-note">Metro: Marquês (linha A/B/C/E/F)<br>Estacionamento na rua</p>
+  </div>
+  <div class="info-cell reveal d1">
+    <div class="info-ico">🕐</div>
+    <p class="info-lbl">Horário</p>
+    <p class="info-val">Seg–Sex: 9h30–19h30<br>Sábado: 9h30–18h</p>
+    <p class="info-note">Domingo: encerrado<br>Consultas: Seg, Qua, Sex</p>
+  </div>
+  <div class="info-cell reveal d2">
+    <div class="info-ico">📞</div>
+    <p class="info-lbl">Contacto</p>
+    <p class="info-val">+351 934 567 890</p>
+    <p class="info-note">Marcações por WhatsApp<br>Resposta em menos de 1h</p>
+    <div class="ibtns">
+      <a href="https://wa.me/351934567890" class="ibtn ibtn-wa" target="_blank">WhatsApp</a>
+      <a href="tel:+351934567890" class="ibtn ibtn-tel">Ligar</a>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="sec rev-sec">
+  <div class="reveal"><div class="stag"><span>Testemunhos</span></div><h2 class="stitle">O que dizem os<br><em>donos</em></h2></div>
+  <div class="rev-grid">
+    <div class="rcard reveal d1">
+      <div class="rstars">★★★★★</div>
+      <p class="rtext">"O meu Bolinha fica sempre impecável depois do banho. A equipa trata-o como se fosse deles. Nunca mais mudei de pet shop!"</p>
+      <div class="rauthor"><div class="ravatar"><img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?w=80&q=80&fit=crop&crop=face" alt="Luís" loading="lazy"></div><div><div class="rname">Luís Monteiro</div><div class="rmeta">Google Maps · há 4 dias</div></div></div>
+    </div>
+    <div class="rcard reveal d2">
+      <div class="rstars">★★★★★</div>
+      <p class="rtext">"Ração de qualidade a um preço justo e entregam em casa! A consulta veterinária também foi excelente. Equipa muito atenciosa."</p>
+      <div class="rauthor"><div class="ravatar"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&q=80&fit=crop&crop=face" alt="Catarina" loading="lazy"></div><div><div class="rname">Catarina Pires</div><div class="rmeta">Google Maps · há 2 semanas</div></div></div>
+    </div>
+    <div class="rcard reveal d3">
+      <div class="rstars">★★★★★</div>
+      <p class="rtext">"Tenho 2 gatos e 1 cão e compro tudo aqui. Conhecem os meus animais pelo nome. É muito mais do que uma loja."</p>
+      <div class="rauthor"><div class="ravatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80&fit=crop&crop=face" alt="Ricardo" loading="lazy"></div><div><div class="rname">Ricardo Santos</div><div class="rmeta">Google Maps · há 1 mês</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-sec">
+  <div class="cta-content reveal">
+    <h2 class="cta-h2">O teu animal merece<br><em>o melhor</em> — e nós temos!</h2>
+    <p class="cta-p">Marca já o próximo banho ou consulta. Resposta garantida em menos de 1 hora.</p>
+  </div>
+  <div class="cta-btns reveal d2">
+    <a href="https://wa.me/351934567890" class="btn-white" target="_blank">Marcar pelo WhatsApp</a>
+    <a href="tel:+351934567890" class="btn-ow">Ligar agora</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ftgrid">
+    <div>
+      <div class="ftlogo"><div class="ftlogo-icon">🐾</div><div class="ftlogo-text">Patinhas<span> & Cia</span></div></div>
+      <p class="ftdesc">Pet shop no coração do Porto desde 2013. Ração, acessórios, banho e cuidados veterinários para cães, gatos e mais.</p>
+      <div class="ftsocs">
+        <a href="#" class="ftsoc">ig</a><a href="#" class="ftsoc">fb</a><a href="https://wa.me/351934567890" class="ftsoc">wa</a>
+      </div>
+    </div>
+    <div class="ftcol"><h4>Serviços</h4><ul><li><a href="#">Banho & Tosquia</a></li><li><a href="#">Alimentação</a></li><li><a href="#">Veterinário</a></li><li><a href="#">Acessórios</a></li></ul></div>
+    <div class="ftcol"><h4>Informações</h4><ul><li><a href="#">Como marcar</a></li><li><a href="#">Entregas</a></li><li><a href="#">Privacidade</a></li><li><a href="#">Contacto</a></li></ul></div>
+    <div class="ftcol"><h4>Horário</h4><ul><li><a href="#">Seg–Sex: 9h30–19h30</a></li><li><a href="#">Sábado: 9h30–18h</a></li><li><a href="#">Domingo: Encerrado</a></li><li><a href="#" style="color:var(--orange-light)">+351 934 567 890</a></li></ul></div>
+  </div>
+  <div class="ftbot">
+    <p class="ftcopy">© 2025 Patinhas & Cia. Todos os direitos reservados.</p>
+    <p class="ftcredit">Site criado por <a href="#">UrbanFlow</a></p>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a href="https://wa.me/351934567890" class="sbtn swa" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <a href="tel:+351934567890" class="sbtn stel">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 13.5 19.5 19.5 0 011.07 4.82 2 2 0 013.05 2.63h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L7.91 10a16 16 0 006 6l.72-.72a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 17.42z"/></svg>
+    Ligar
+  </a>
+</div>
+
+<script>
+  const hdr = document.getElementById('hdr');
+  window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 60), {passive:true});
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)} }), {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

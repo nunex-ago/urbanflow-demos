@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferro & Obra — Serralharia | Porto</title>
+<meta name="description" content="Ferro & Obra — Serralharia e estruturas metálicas no Porto. Portões, gradeamentos, escadas e serralharia geral. Orçamento grátis.">
+<meta property="og:title" content="Ferro & Obra — Serralharia no Porto">
+<meta property="og:description" content="Portões automáticos, gradeamentos, estruturas metálicas e serralharia geral. Orçamento grátis em 24h.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&h=630&fit=crop&q=90">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&h=630&fit=crop&q=90">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --steel:#1A2332;--steel2:#243044;--steel3:#2E3D55;
+  --yellow:#F5C200;--yellow2:#FFD740;
+  --rust:#C44B1A;--white:#F8F8F8;--mid:#8A9BB0;--light:#C0CCDA;
+  --ff-display:'Barlow Condensed',sans-serif;--ff-body:'Barlow',sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--steel);color:var(--white);font-family:var(--ff-body);font-weight:300;line-height:1.65;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--steel2)}::-webkit-scrollbar-thumb{background:var(--yellow);border-radius:3px}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 64px;transition:all .35s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(26,35,50,.97);backdrop-filter:blur(16px);padding:14px 64px;border-color:rgba(245,194,0,.15)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{font-family:var(--ff-display);font-size:28px;font-weight:800;color:var(--yellow);letter-spacing:-.02em;line-height:1}
+.logo-divider{width:1px;height:28px;background:rgba(245,194,0,.3)}
+.logo-sub{font-family:var(--ff-display);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mid)}
+nav ul{display:flex;gap:32px;list-style:none}
+nav ul a{font-family:var(--ff-display);font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .25s;position:relative}
+nav ul a::after{content:'';position:absolute;bottom:-4px;left:0;right:100%;height:2px;background:var(--yellow);transition:right .3s}
+nav ul a:hover{color:var(--white)}
+nav ul a:hover::after{right:0}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--steel);font-family:var(--ff-display);font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:12px 28px;text-decoration:none;transition:all .3s}
+.nav-cta:hover{background:var(--yellow2);transform:scale(1.03)}
+@media(max-width:900px){header{padding:16px 20px}header.scrolled{padding:12px 20px}nav ul{display:none}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600&q=80&fit=crop');background-size:cover;background-position:center;transform:scale(1.04);animation:zoomOut 1.2s .1s forwards ease-out}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,35,50,.98) 0%,rgba(26,35,50,.7) 50%,rgba(26,35,50,.3) 100%)}
+.hero-grid-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(245,194,0,.04) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(245,194,0,.04) 80px);pointer-events:none}
+.hero-content{position:relative;z-index:2;padding:0 80px 80px;width:100%;max-width:900px}
+.hero-eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:24px;opacity:0;animation:fadeUp .7s .3s forwards}
+.hero-eyebrow-line{width:48px;height:3px;background:var(--yellow)}
+.hero-eyebrow-text{font-family:var(--ff-display);font-size:13px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--yellow)}
+.hero-h1{font-family:var(--ff-display);font-size:clamp(60px,8vw,120px);font-weight:800;line-height:.95;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:24px;opacity:0;animation:fadeUp .8s .45s forwards}
+.hero-h1 em{font-style:normal;color:var(--yellow);display:block}
+.hero-desc{font-size:18px;color:var(--mid);max-width:560px;margin-bottom:48px;line-height:1.75;opacity:0;animation:fadeUp .8s .6s forwards}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:64px;opacity:0;animation:fadeUp .8s .75s forwards}
+.btn-yellow{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--steel);font-family:var(--ff-display);font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:18px 44px;text-decoration:none;transition:all .3s}
+.btn-yellow:hover{background:var(--yellow2);transform:translateY(-3px) scale(1.02);box-shadow:0 12px 36px rgba(245,194,0,.35)}
+.btn-steel{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--white);font-family:var(--ff-display);font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:18px 36px;text-decoration:none;border:2px solid rgba(255,255,255,.25);transition:all .3s}
+.btn-steel:hover{border-color:var(--yellow);color:var(--yellow);transform:translateY(-3px) scale(1.02)}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap;padding-top:48px;border-top:1px solid rgba(245,194,0,.2);opacity:0;animation:fadeUp .8s .9s forwards}
+.hstat-num{font-family:var(--ff-display);font-size:48px;font-weight:800;color:var(--yellow);line-height:1}
+.hstat-lbl{font-size:12px;font-weight:400;color:var(--mid);letter-spacing:.08em;margin-top:4px}
+@media(max-width:768px){.hero-content{padding:0 24px 60px}.hero-stats{gap:28px}}
+
+/* YELLOW BAR */
+.ybar{background:var(--yellow);padding:0 64px;display:flex;align-items:center;overflow:hidden;min-height:56px}
+@media(max-width:768px){.ybar{padding:0 20px}}
+.ybar-track{display:inline-flex;animation:marquee 18s linear infinite}
+.ybar-item{display:inline-flex;align-items:center;gap:16px;padding:0 32px;font-family:var(--ff-display);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--steel);white-space:nowrap}
+.ybar-dot{width:5px;height:5px;background:rgba(26,35,50,.4)}
+
+/* SECTION */
+.sec{padding:112px 80px}
+@media(max-width:768px){.sec{padding:72px 24px}}
+.stag{display:inline-flex;align-items:center;gap:12px;font-family:var(--ff-display);font-size:12px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--yellow);margin-bottom:16px}
+.stag::before{content:'';width:32px;height:3px;background:var(--yellow)}
+.stitle{font-family:var(--ff-display);font-size:clamp(40px,5vw,72px);font-weight:800;line-height:1.0;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:16px}
+.stitle em{font-style:normal;color:var(--yellow)}
+.ssub{font-size:17px;color:var(--mid);max-width:520px;line-height:1.75}
+
+/* SERVICES */
+.svc-sec{background:var(--steel2)}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:64px}
+@media(max-width:768px){.svc-grid{grid-template-columns:1fr}}
+.svc-card{position:relative;overflow:hidden;cursor:pointer;background:var(--steel3)}
+.svc-card:hover{z-index:1}
+.svc-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;opacity:.7;transition:opacity .4s,transform .5s}
+.svc-card:hover .svc-img{opacity:.9;transform:scale(1.05)}
+.svc-body{padding:32px 36px}
+.svc-num{font-family:var(--ff-display);font-size:60px;font-weight:800;color:rgba(245,194,0,.15);line-height:1;margin-bottom:0;position:absolute;top:16px;right:24px;transition:color .3s}
+.svc-card:hover .svc-num{color:rgba(245,194,0,.4)}
+.svc-title{font-family:var(--ff-display);font-size:26px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px;transition:color .3s}
+.svc-card:hover .svc-title{color:var(--yellow)}
+.svc-desc{font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:16px}
+.svc-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-display);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);border:1px solid rgba(245,194,0,.3);padding:5px 14px}
+.svc-card-hover-bar{position:absolute;bottom:0;left:0;width:0;height:3px;background:var(--yellow);transition:width .4s var(--ease)}
+.svc-card:hover .svc-card-hover-bar{width:100%}
+
+/* ABOUT */
+.about-sec{background:var(--steel)}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:72px}
+@media(max-width:900px){.about-layout{grid-template-columns:1fr;gap:40px}}
+.about-img-stack{position:relative}
+.about-img-main{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:grayscale(30%);transition:filter .4s}
+.about-img-stack:hover .about-img-main{filter:grayscale(0%)}
+.about-img-accent{position:absolute;bottom:-24px;right:-24px;width:55%;aspect-ratio:1;object-fit:cover;border:4px solid var(--steel);transition:transform .4s}
+.about-img-stack:hover .about-img-accent{transform:scale(1.04)}
+.about-badge{position:absolute;top:24px;left:-16px;background:var(--yellow);color:var(--steel);padding:16px 24px;font-family:var(--ff-display);font-weight:800}
+.about-badge-num{font-size:36px;line-height:1}
+.about-badge-lbl{font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.about-content{display:flex;flex-direction:column;gap:24px}
+.about-quote{font-family:var(--ff-display);font-size:clamp(20px,2.5vw,30px);font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1.2;color:var(--white);border-left:4px solid var(--yellow);padding-left:24px}
+.about-p{font-size:15px;color:var(--mid);line-height:1.85}
+.about-feat{display:flex;align-items:center;gap:14px;padding:14px 20px;background:var(--steel2);border-left:3px solid transparent;font-size:14px;font-weight:500;color:var(--light);transition:all .3s}
+.about-feat:hover{border-color:var(--yellow);background:var(--steel3);transform:translateX(6px);color:var(--white)}
+.about-feat-icon{font-size:18px;flex-shrink:0}
+
+/* WORK / PORTFOLIO */
+.work-sec{background:var(--steel2)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:280px 280px;gap:3px;margin-top:64px}
+@media(max-width:900px){.work-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}}
+.witem{overflow:hidden;position:relative;cursor:pointer}
+.witem:nth-child(1){grid-row:span 2}
+@media(max-width:900px){.witem:nth-child(1){grid-row:span 1}}
+.witem img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(40%);transition:filter .5s,transform .5s}
+.witem:hover img{filter:grayscale(0%);transform:scale(1.08)}
+.wover{position:absolute;inset:0;background:rgba(26,35,50,0);display:flex;align-items:flex-end;padding:24px;transition:background .35s}
+.witem:hover .wover{background:rgba(26,35,50,.6)}
+.wcap{font-family:var(--ff-display);font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;opacity:0;transform:translateY(8px);transition:all .35s}
+.witem:hover .wcap{opacity:1;transform:translateY(0)}
+
+/* INFO */
+.info-sec{background:var(--steel3);display:grid;grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.info-sec{grid-template-columns:1fr}}
+.icell{padding:64px 52px;border-right:1px solid rgba(245,194,0,.1);transition:background .3s}
+.icell:hover{background:rgba(245,194,0,.04)}
+.icell:last-child{border-right:none}
+@media(max-width:900px){.icell{padding:40px 24px;border-right:none;border-bottom:1px solid rgba(245,194,0,.1)}.icell:last-child{border-bottom:none}}
+.icell-icon{font-size:32px;margin-bottom:20px;display:block;transition:transform .3s var(--ease)}
+.icell:hover .icell-icon{transform:scale(1.2) rotate(-5deg)}
+.ilbl{font-family:var(--ff-display);font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px}
+.ival{font-family:var(--ff-display);font-size:22px;font-weight:700;line-height:1.5;margin-bottom:8px;text-transform:uppercase}
+.inote{font-size:13px;color:var(--mid);line-height:1.7}
+.ibtns{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.ibtn{display:inline-flex;align-items:center;gap:8px;font-family:var(--ff-display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:transform .3s,box-shadow .3s}
+.ibtn:hover{transform:scale(1.05) translateY(-2px)}
+.ibtn-wa{background:#25D366;color:#fff}.ibtn-wa:hover{box-shadow:0 6px 20px rgba(37,211,102,.4)}
+.ibtn-y{background:var(--yellow);color:var(--steel)}.ibtn-y:hover{box-shadow:0 6px 20px rgba(245,194,0,.4)}
+
+/* REVIEWS */
+.rev-sec{background:var(--steel)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px}
+@media(max-width:900px){.rev-grid{grid-template-columns:1fr;gap:16px}}
+.rcard{background:var(--steel2);padding:40px 36px;border-top:3px solid transparent;transition:all .35s}
+.rcard:hover{border-color:var(--yellow);background:var(--steel3);transform:translateY(-6px)}
+.rstars{font-size:16px;margin-bottom:20px;letter-spacing:3px}
+.rtext{font-family:var(--ff-display);font-size:20px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;line-height:1.35;margin-bottom:24px;color:var(--white)}
+.rauthor{display:flex;align-items:center;gap:12px}
+.ravatar{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(245,194,0,.3)}
+.ravatar img{width:100%;height:100%;object-fit:cover}
+.rname{font-family:var(--ff-display);font-size:14px;font-weight:700;text-transform:uppercase;color:var(--white)}
+.rmeta{font-size:12px;color:var(--mid)}
+
+/* CTA */
+.cta-sec{background:var(--yellow);padding:96px 80px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;position:relative;overflow:hidden}
+@media(max-width:768px){.cta-sec{padding:64px 24px;flex-direction:column;align-items:flex-start}}
+.cta-sec::before{content:'';position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:300px;height:300px;border-radius:50%;background:rgba(26,35,50,.08)}
+.cta-h2{font-family:var(--ff-display);font-size:clamp(32px,4vw,64px);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;color:var(--steel);line-height:1.0;max-width:640px;position:relative;z-index:1}
+.cta-btns{position:relative;z-index:1;display:flex;gap:14px;flex-wrap:wrap}
+.btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--steel);color:var(--yellow);font-family:var(--ff-display);font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:18px 44px;text-decoration:none;transition:all .3s}
+.btn-dark:hover{background:var(--steel2);transform:translateY(-3px) scale(1.02);box-shadow:0 12px 36px rgba(26,35,50,.35)}
+.btn-ghost-dark{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--steel);font-family:var(--ff-display);font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:18px 32px;text-decoration:none;border:2px solid rgba(26,35,50,.3);transition:all .3s}
+.btn-ghost-dark:hover{border-color:var(--steel);transform:translateY(-3px) scale(1.02)}
+
+/* FOOTER */
+footer{background:#0F1622;color:rgba(248,248,248,.4);padding:72px 80px 40px}
+@media(max-width:768px){footer{padding:48px 24px 32px}}
+.ftgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(245,194,0,.1);margin-bottom:32px}
+@media(max-width:900px){.ftgrid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:500px){.ftgrid{grid-template-columns:1fr}}
+.ftlogo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.ftlogo-mark{font-family:var(--ff-display);font-size:28px;font-weight:800;color:var(--yellow)}
+.ftlogo-div{width:1px;height:24px;background:rgba(245,194,0,.25)}
+.ftlogo-sub{font-family:var(--ff-display);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mid)}
+.ftdesc{font-size:14px;line-height:1.8;margin-bottom:24px}
+.ftsocs{display:flex;gap:10px}
+.ftsoc{width:36px;height:36px;background:rgba(245,194,0,.08);border:1px solid rgba(245,194,0,.15);display:flex;align-items:center;justify-content:center;color:var(--mid);font-size:12px;text-decoration:none;font-family:var(--ff-display);font-weight:700;transition:all .3s}
+.ftsoc:hover{background:var(--yellow);color:var(--steel);transform:scale(1.1);border-color:transparent}
+.ftcol h4{font-family:var(--ff-display);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);margin-bottom:18px}
+.ftcol ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftcol ul li a{font-size:14px;color:rgba(248,248,248,.4);text-decoration:none;transition:all .25s;font-family:var(--ff-body)}
+.ftcol ul li a:hover{color:var(--white);padding-left:6px}
+.ftbot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ftcopy{font-size:12px}
+.ftcredit{font-size:12px}.ftcredit a{color:var(--yellow);text-decoration:none;transition:color .3s}.ftcredit a:hover{color:var(--yellow2)}
+
+/* STICKY */
+.sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:10px 16px 14px;background:rgba(15,22,34,.97);backdrop-filter:blur(12px);border-top:2px solid var(--yellow);gap:10px}
+@media(max-width:768px){.sticky{display:flex}}
+.sbtn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;font-family:var(--ff-display);font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.sbtn:hover{transform:scale(1.03)}
+.swa{background:#25D366;color:#fff}.swa:hover{box-shadow:0 4px 20px rgba(37,211,102,.5)}
+.sy{background:var(--yellow);color:var(--steel)}.sy:hover{box-shadow:0 4px 20px rgba(245,194,0,.5)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes zoomOut{from{transform:scale(1.04)}to{transform:scale(1)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <a href="#" class="logo">
+    <div class="logo-mark">F&O</div>
+    <div class="logo-divider"></div>
+    <div class="logo-sub">Serralharia</div>
+  </a>
+  <nav><ul>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre nós</a></li>
+    <li><a href="#trabalhos">Trabalhos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul></nav>
+  <a href="https://wa.me/351912345678" class="nav-cta" target="_blank">Pedir Orçamento</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Serralharia & Estruturas Metálicas · Porto</span></div>
+    <h1 class="hero-h1">Ferro.<br><em>Obra.</em><br>Qualidade.</h1>
+    <p class="hero-desc">Portões automáticos, gradeamentos, escadas e estruturas metálicas. Orçamento gratuito em 24 horas. Mais de 25 anos de experiência no Porto.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/351912345678" class="btn-yellow" target="_blank">Pedir orçamento grátis</a>
+      <a href="#trabalhos" class="btn-steel">Ver trabalhos →</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hstat-num">25+</div><div class="hstat-lbl">Anos de experiência</div></div>
+      <div><div class="hstat-num">1200+</div><div class="hstat-lbl">Obras concluídas</div></div>
+      <div><div class="hstat-num">4.8</div><div class="hstat-lbl">Google Maps</div></div>
+      <div><div class="hstat-num">24h</div><div class="hstat-lbl">Resposta garantida</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- YELLOW BAR -->
+<div class="ybar">
+  <div class="ybar-track">
+    <div class="ybar-item"><span>Portões Automáticos</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Gradeamentos</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Escadas Metálicas</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Estruturas em Aço</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Vedações</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Marquises</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Serralharia Geral</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Portões Automáticos</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Gradeamentos</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Escadas Metálicas</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Estruturas em Aço</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Vedações</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Marquises</span><div class="ybar-dot"></div></div>
+    <div class="ybar-item"><span>Serralharia Geral</span><div class="ybar-dot"></div></div>
+  </div>
+</div>
+
+<!-- SERVIÇOS -->
+<section class="sec svc-sec" id="servicos">
+  <div class="reveal"><div class="stag">O que fazemos</div><h2 class="stitle">Serviços de<br><em>excelência</em></h2><p class="ssub">Fabricamos e instalamos em todo o Porto e arredores. Materiais de primeira qualidade, acabamentos impecáveis.</p></div>
+  <div class="svc-grid">
+    <div class="svc-card reveal d1">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&fit=crop" alt="Portão" loading="lazy">
+      <div class="svc-num">01</div>
+      <div class="svc-body">
+        <h3 class="svc-title">Portões Automáticos</h3>
+        <p class="svc-desc">Portões deslizantes, de batente ou basculantes. Automatização com comando e intercomunicador incluídos.</p>
+        <div class="svc-tag">Orçamento grátis</div>
+      </div>
+      <div class="svc-card-hover-bar"></div>
+    </div>
+    <div class="svc-card reveal d2">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80&fit=crop" alt="Gradeamento" loading="lazy">
+      <div class="svc-num">02</div>
+      <div class="svc-body">
+        <h3 class="svc-title">Gradeamentos & Vedações</h3>
+        <p class="svc-desc">Grades de segurança para janelas e varandas. Vedações em ferro ou aço inox com design personalizado.</p>
+        <div class="svc-tag">Medição ao domicílio</div>
+      </div>
+      <div class="svc-card-hover-bar"></div>
+    </div>
+    <div class="svc-card reveal d1">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80&fit=crop" alt="Estrutura" loading="lazy">
+      <div class="svc-num">03</div>
+      <div class="svc-body">
+        <h3 class="svc-title">Estruturas Metálicas</h3>
+        <p class="svc-desc">Escadas, mezanines, estruturas para telheiros, marquises e coberturas em aço e alumínio.</p>
+        <div class="svc-tag">Projeto + instalação</div>
+      </div>
+      <div class="svc-card-hover-bar"></div>
+    </div>
+    <div class="svc-card reveal d2">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=700&q=80&fit=crop" alt="Serralharia" loading="lazy">
+      <div class="svc-num">04</div>
+      <div class="svc-body">
+        <h3 class="svc-title">Serralharia Geral</h3>
+        <p class="svc-desc">Reparações, modificações e fabrico de peças sob medida. Soldadura, corte e acabamentos especializados.</p>
+        <div class="svc-tag">Urgências atendidas</div>
+      </div>
+      <div class="svc-card-hover-bar"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sec about-sec" id="sobre">
+  <div class="reveal"><div class="stag">Sobre nós</div><h2 class="stitle">25 anos a construir<br><em>confiança</em></h2></div>
+  <div class="about-layout">
+    <div class="about-img-stack reveal">
+      <img class="about-img-main" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&fit=crop" alt="Serralheiro a trabalhar" loading="lazy">
+      <img class="about-img-accent" src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400&q=80&fit=crop" alt="Oficina" loading="lazy">
+      <div class="about-badge"><div class="about-badge-num">1999</div><div class="about-badge-lbl">fundação</div></div>
+    </div>
+    <div class="about-content reveal d2">
+      <blockquote class="about-quote">"Ferro bem trabalhado dura décadas. O nosso nome também."</blockquote>
+      <p class="about-p">O Manuel Ferreira fundou a Ferro & Obra em 1999 com uma oficina pequena e muita determinação. Hoje somos uma referência no Porto, com uma equipa de 8 profissionais especializados.</p>
+      <p class="about-p">Cada projeto é tratado com o mesmo cuidado — do portão de uma moradia à estrutura de um edifício comercial. Qualidade sem comprometer, prazo sem falhar.</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div class="about-feat"><span class="about-feat-icon">🔩</span> Fabrico próprio em oficina equipada</div>
+        <div class="about-feat"><span class="about-feat-icon">📐</span> Medição e projeto incluídos no orçamento</div>
+        <div class="about-feat"><span class="about-feat-icon">🛡️</span> Garantia de 5 anos em todas as obras</div>
+        <div class="about-feat"><span class="about-feat-icon">📞</span> Disponíveis 7 dias por semana</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRABALHOS -->
+<section class="sec work-sec" id="trabalhos">
+  <div class="reveal"><div class="stag">Portfólio</div><h2 class="stitle">Os nossos <em>trabalhos</em></h2><p class="ssub">Uma amostra de projetos recentes em habitações e empresas no Porto.</p></div>
+  <div class="work-grid">
+    <div class="witem reveal"><img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&fit=crop" alt="Portão" loading="lazy"><div class="wover"><span class="wcap">Portão automático</span></div></div>
+    <div class="witem reveal d1"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=80&fit=crop" alt="Estrutura" loading="lazy"><div class="wover"><span class="wcap">Estrutura industrial</span></div></div>
+    <div class="witem reveal d2"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80&fit=crop" alt="Grade" loading="lazy"><div class="wover"><span class="wcap">Gradeamento residencial</span></div></div>
+    <div class="witem reveal d3"><img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=600&q=80&fit=crop" alt="Escada" loading="lazy"><div class="wover"><span class="wcap">Escada metálica</span></div></div>
+    <div class="witem reveal"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80&fit=crop" alt="Vedação" loading="lazy"><div class="wover"><span class="wcap">Vedação exterior</span></div></div>
+  </div>
+</section>
+
+<!-- INFO -->
+<div class="info-sec" id="contacto">
+  <div class="icell reveal">
+    <span class="icell-icon">📍</span>
+    <p class="ilbl">Localização</p>
+    <p class="ival">Rua da Boavista, 340<br>Porto, 4100-120</p>
+    <p class="inote">Oficina aberta ao público<br>Visitas com marcação prévia</p>
+  </div>
+  <div class="icell reveal d1">
+    <span class="icell-icon">🕐</span>
+    <p class="ilbl">Horário</p>
+    <p class="ival">Seg–Sex: 8h–18h<br>Sábado: 8h–13h</p>
+    <p class="inote">Urgências: 7 dias por semana<br>Disponível via WhatsApp</p>
+  </div>
+  <div class="icell reveal d2">
+    <span class="icell-icon">📞</span>
+    <p class="ilbl">Contacto</p>
+    <p class="ival">+351 912 345 678</p>
+    <p class="inote">Orçamento gratuito em 24h<br>Deslocação incluída no Porto</p>
+    <div class="ibtns">
+      <a href="https://wa.me/351912345678" class="ibtn ibtn-wa" target="_blank">WhatsApp</a>
+      <a href="tel:+351912345678" class="ibtn ibtn-y">Ligar</a>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="sec rev-sec">
+  <div class="reveal"><div class="stag">Testemunhos</div><h2 class="stitle">O que dizem<br><em>os clientes</em></h2></div>
+  <div class="rev-grid">
+    <div class="rcard reveal d1">
+      <div class="rstars">★★★★★</div>
+      <p class="rtext">"Portão automático instalado num dia. Trabalho perfeito, preço justo."</p>
+      <div class="rauthor"><div class="ravatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=80&fit=crop&crop=face" alt="António" loading="lazy"></div><div><div class="rname">António Rodrigues</div><div class="rmeta">Google Maps · há 1 semana</div></div></div>
+    </div>
+    <div class="rcard reveal d2">
+      <div class="rstars">★★★★★</div>
+      <p class="rtext">"Grades para todas as janelas do prédio. Cumpriram o prazo e o orçamento sem surpresas."</p>
+      <div class="rauthor"><div class="ravatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&q=80&fit=crop&crop=face" alt="Elsa" loading="lazy"></div><div><div class="rname">Elsa Magalhães</div><div class="rmeta">Google Maps · há 3 semanas</div></div></div>
+    </div>
+    <div class="rcard reveal d3">
+      <div class="rstars">★★★★★</div>
+      <p class="rtext">"Já trabalhei com eles 3 vezes. Profissionalismo do início ao fim. Só posso recomendar."</p>
+      <div class="rauthor"><div class="ravatar"><img src="https://images.unsplash.com/photo-1542178243-bc20204b769f?w=80&q=80&fit=crop&crop=face" alt="Rui" loading="lazy"></div><div><div class="rname">Rui Teixeira</div><div class="rmeta">Google Maps · há 2 meses</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-sec">
+  <h2 class="cta-h2 reveal">Pronto para começar<br>o seu projeto?<br>Orçamento grátis em 24h.</h2>
+  <div class="cta-btns reveal d2">
+    <a href="https://wa.me/351912345678" class="btn-dark" target="_blank">Pedir orçamento grátis</a>
+    <a href="tel:+351912345678" class="btn-ghost-dark">Ligar agora</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ftgrid">
+    <div>
+      <div class="ftlogo"><div class="ftlogo-mark">F&O</div><div class="ftlogo-div"></div><div class="ftlogo-sub">Serralharia</div></div>
+      <p class="ftdesc">Serralharia e estruturas metálicas no Porto desde 1999. Portões, gradeamentos, escadas e serralharia geral. Orçamento grátis.</p>
+      <div class="ftsocs">
+        <a href="#" class="ftsoc">IG</a><a href="#" class="ftsoc">FB</a><a href="https://wa.me/351912345678" class="ftsoc">WA</a>
+      </div>
+    </div>
+    <div class="ftcol"><h4>Serviços</h4><ul><li><a href="#">Portões Automáticos</a></li><li><a href="#">Gradeamentos</a></li><li><a href="#">Estruturas Metálicas</a></li><li><a href="#">Serralharia Geral</a></li></ul></div>
+    <div class="ftcol"><h4>Informações</h4><ul><li><a href="#">Como pedir orçamento</a></li><li><a href="#">Garantias</a></li><li><a href="#">Área de serviço</a></li><li><a href="#">Privacidade</a></li></ul></div>
+    <div class="ftcol"><h4>Contacto</h4><ul><li><a href="#">Seg–Sex: 8h–18h</a></li><li><a href="#">Sábado: 8h–13h</a></li><li><a href="#">Urgências: 7 dias</a></li><li><a href="#" style="color:var(--yellow)">+351 912 345 678</a></li></ul></div>
+  </div>
+  <div class="ftbot">
+    <p class="ftcopy">© 2025 Ferro & Obra. Todos os direitos reservados.</p>
+    <p class="ftcredit">Site criado por <a href="#">UrbanFlow</a></p>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a href="https://wa.me/351912345678" class="sbtn swa" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <a href="tel:+351912345678" class="sbtn sy">Orçamento Grátis</a>
+</div>
+
+<script>
+  const hdr = document.getElementById('hdr');
+  window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 60), {passive:true});
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)} }), {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
